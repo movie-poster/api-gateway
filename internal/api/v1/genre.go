@@ -11,7 +11,7 @@ import (
 func SetGenreRoutes(router *echo.Group, auth echo.MiddlewareFunc) {
 	path := router.Group("/genre")
 
-	path.POST("", c.Insert, auth, v.ValidateDirector)
+	path.POST("", c.Insert, auth, v.ValidateGenre)
 	path.GET("", c.List, mid.ValidatePageQueryParam, mid.ValidatePageSizeQueryParam)
 	path.DELETE("/:ID", c.Delete, auth, v.ValidateParameterID)
 }
